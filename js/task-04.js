@@ -20,10 +20,15 @@
 //(╯ ͠° ͟ʖ ͡°)╯┻━┻
 const incrementBtn = document.querySelector('[data-action="increment"]');
 const decrementBtn = document.querySelector('[data-action="decrement"]');
-let counterValue = document.getElementById(`value`);
-
-console.log(incrementBtn)
+const counter = document.getElementById(`value`);
+let counterValue = 0;
 
 incrementBtn.addEventListener("click", () => {
-    counterValue.innerHTML = Number(counterValue) + 1;
+    counterValue += 1;
+    counter.innerHTML = counterValue;
+})
+
+decrementBtn.addEventListener("click", () => {
+    counterValue -= 1;
+    counter.innerHTML = counterValue;
 })
