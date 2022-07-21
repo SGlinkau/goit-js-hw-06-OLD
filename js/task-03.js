@@ -13,9 +13,23 @@ const images = [
   },
 ];
 
-const img = document.createElement("img");
-const body = document.body;
-img.setAttribute("src", "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260");
-img.setAttribute("alt", "kotki")
-const galery = body.firstElementChild
-galery.append(img)
+const galery = document.querySelector(".gallery");
+
+galery.insertAdjacentHTML(
+  "beforeend",
+  images
+    .map(
+      (image) =>
+        `<li class="item"><img src="${image.url}" alt= "${image.alt}" width="320" height="200"></li>`
+    )
+    .join("")
+);
+
+galery.style.listStyleType = "None";
+galery.style.display = "flex";
+galery.style.flexWrap = "wrap";
+
+for (let i = 0; i < images.length; i++) {
+  let item = document.querySelectorAll("li");
+  item[i].style.margin = "10px";
+};
